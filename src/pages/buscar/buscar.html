@@ -1,0 +1,26 @@
+<ion-header  style = "background-color: #0D2149">
+
+  <ion-navbar  style = "background-color: #0D2149">
+    <ion-title style = "background-color: #0D2149">Buscar</ion-title>
+  </ion-navbar>
+  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+
+</ion-header>
+
+
+<ion-content padding  style = "background-color: #F2F2F2">
+  <ion-list>
+    <ion-item *ngFor = "let p of elementos"  style = "background-color: #FF5400">
+      <ion-thumbnail item-start>
+        <img *ngIf="p.ad.hasOwnProperty('thumbnail')" src="https://img.segundamano.mx/cover/{{p.ad.thumbnail.path}}">
+      </ion-thumbnail>
+      <h2 *ngIf= "p.ad.hasOwnProperty('subject')">
+        {{p.ad.subject}}s
+      </h2>
+      <h2 *ngIf= "p.ad.hasOwnProperty('list_price')">
+        {{p.ad.list_price.label}}
+      </h2>
+      <button ion-button clear item-end (click)="Info(p)">Ver</button>
+    </ion-item>
+  </ion-list>
+</ion-content>

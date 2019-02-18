@@ -1,0 +1,22 @@
+<ion-header  style = "background-color: #0D2149">
+  <ion-navbar  style = "background-color: #0D2149">
+    <ion-title  style = "background-color: #0D2149">Favoritos</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding  style = "background-color: #F2F2F2">
+  <ion-list>
+    <ion-item *ngFor = "let f of favoritos"  style = "background-color: #FF5400">
+      <ion-thumbnail item-start>
+        <img *ngIf="f.ad.hasOwnProperty('thumbnail')" src="https://img.segundamano.mx/cover/{{f.ad.thumbnail.path}}">
+      </ion-thumbnail>
+      <h2 *ngIf= "f.ad.hasOwnProperty('subject')">
+        {{f.ad.subject}}
+      </h2>
+      <h2 *ngIf= "f.ad.hasOwnProperty('list_price')">
+        {{f.ad.list_price.label}}
+      </h2>
+      <button ion-button clear item-end (click)="Info(f)">Ver</button>
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -1,7 +1,7 @@
 <ion-header  style = "background-color: #0D2149">
   <ion-navbar  style = "background-color: #0D2149">
     <ion-title style = "background-color: #0D2149">
-      Videojuegos
+      Empleos
     </ion-title>
     <ion-buttons end>
       <button ion-button icon-only (click)="Buscar()">
@@ -14,19 +14,19 @@
 <ion-content padding  style = "background-color: #F2F2F2">
   <ion-grid>
     <ion-row>
-      <ion-col *ngFor="let v of vj" col-4 >
-        <ion-card (click)="Info(v)"  style = "background-color: #FF5400">
-          <img *ngIf="v.ad.hasOwnProperty('thumbnail')"
-                src='https://img.segundamano.mx/cover/{{v.ad.thumbnail.path}}'
+      <ion-col  *ngFor="let e of empleos"col-4>
+        <ion-card (click)="Info(e)"  style = "background-color: #FF5400">
+          <img *ngIf="e.ad.hasOwnProperty('thumbnail')"
+                src='https://img.segundamano.mx/cover/{{e.ad.thumbnail.path}}'
           >
-          <img *ngIf="!v.ad.hasOwnProperty('thumbnail')"
-                src='../assets/VJ.jpg'
+          <img *ngIf="!e.ad.hasOwnProperty('thumbnail')"
+                src='../assets/empleo.jpg'
           >
-          <h1 *ngIf="v.ad.hasOwnProperty('subject')">
-            {{v.ad.subject}}
+          <h1 *ngIf="e.ad.hasOwnProperty('subject')">
+            {{e.ad.subject}}
           </h1>
-          <h2 *ngIf="v.ad.hasOwnProperty('list_price')">
-            {{v.ad.list_price.label}}
+          <h2 *ngIf="e.ad.hasOwnProperty('list_price')">
+            {{e.ad.list_price.label}}
           </h2>
         </ion-card>
       </ion-col>
